@@ -2,11 +2,8 @@
 var pwdLen = 0;
 var strPwdCriteria = "";
 var pFlag = true;
-//Arrays containing character
-// var uCaseArr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-// var lCaseArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-// var numArr = [0,1,2,3,4,5,6,7,8,9];
-// var splCharArr = ['!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~'];
+var pwdReturn = "";
+// Strings containing different character types
 var uCaseStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lCaseStr = "abcdefghijklmnopqrstuvwxyz"
 var numStr = "0123456789";
@@ -77,9 +74,30 @@ function generatePassword() {
 
     // 3. Function to generate password based on user inputs
     var createPwd = function() {
-    };
 
-    return strPwdCriteria;
+      var pCharType = "";
+      var charStr = "";
+
+      // Conditions to concatenate the strings based on he character type chosen
+      
+      if(strPwdCriteria.includes("L")) {
+        charStr = charStr + lCaseStr;
+      }
+
+      // alert("Character string length: "+charStr.length);
+
+      for(var i = 0; i < pwdLen; i++) {
+        pCharType = charStr[Math.floor(Math.random()*charStr.length)];
+        alert("Random letter selected: " +pCharType);
+        pwdReturn = pwdReturn.concat(pCharType);
+        alert("Password formed: " +pwdReturn);
+      }
+
+    };
+    
+    createPwd();
+    
+    return pwdReturn;
 }
 
 // Write password to the #password input
