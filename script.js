@@ -88,6 +88,10 @@ function generatePassword() {
         charStr = charStr + uCaseStr;
       }
 
+      if(strPwdCriteria.includes("N")) {
+        charStr = charStr + numStr;
+      }
+
       // alert("Character string length: "+charStr.length);
 
       for(var i = 0; i < pwdLen; i++) {
