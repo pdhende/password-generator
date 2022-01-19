@@ -92,13 +92,13 @@ function generatePassword() {
         charStr = charStr + numStr;
       }
 
-      // alert("Character string length: "+charStr.length);
+      if(strPwdCriteria.includes("S")) {
+        charStr = charStr + splCharStr;
+      }
 
       for(var i = 0; i < pwdLen; i++) {
         pCharType = charStr[Math.floor(Math.random()*charStr.length)];
-        alert("Random letter selected: " +pCharType);
         pwdReturn = pwdReturn.concat(pCharType);
-        alert("Password formed: " +pwdReturn);
       }
 
     };
