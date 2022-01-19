@@ -78,10 +78,14 @@ function generatePassword() {
       var pCharType = "";
       var charStr = "";
 
-      // Conditions to concatenate the strings based on he character type chosen
+      // Conditions to concatenate the strings based on the character types chosen
       
       if(strPwdCriteria.includes("L")) {
         charStr = charStr + lCaseStr;
+      }
+
+      if(strPwdCriteria.includes("U")) {
+        charStr = charStr + uCaseStr;
       }
 
       // alert("Character string length: "+charStr.length);
