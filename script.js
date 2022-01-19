@@ -31,10 +31,6 @@ function generatePassword() {
         }
       };
       
-      while(pFlag) {
-        pwdLgth();
-      }
-
     //2. Function to prompt user to choose character type LowerCase/Uppercase/Numeric/Special Characters and validate the selection.
     var charTypes = function() {
 
@@ -68,10 +64,6 @@ function generatePassword() {
       }
     };
 
-    while(strPwdCriteria === "") {
-      charTypes();
-    }
-
     // 3. Function to generate password based on user inputs
     var createPwd = function() {
 
@@ -79,7 +71,6 @@ function generatePassword() {
       var charStr = "";
 
       // Conditions to concatenate the strings based on the character types chosen
-      
       if(strPwdCriteria.includes("L")) {
         charStr = charStr + lCaseStr;
       }
@@ -100,11 +91,23 @@ function generatePassword() {
         pCharType = charStr[Math.floor(Math.random()*charStr.length)];
         pwdReturn = pwdReturn.concat(pCharType);
       }
-
     };
     
-    createPwd();
-    
+    // Call function to get password length from the user
+    while(pFlag) {
+      pwdLgth();
+    }
+
+    // Call function to get the character types from the user
+    while(strPwdCriteria === "") {
+      charTypes();
+    }
+
+    // Call function to create password with random character types
+    if(pwdReturn == "") {
+      createPwd();
+    }
+
     return pwdReturn;
 }
 
