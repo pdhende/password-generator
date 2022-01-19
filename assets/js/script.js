@@ -1,9 +1,4 @@
-// Variables declared or initialized
-var pwdLen = 0;
-var strPwdCriteria = "";
-var pFlag = true;
-var pwdReturn = "";
-// Strings containing different character types
+// String variables containing different character types
 var uCaseStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lCaseStr = "abcdefghijklmnopqrstuvwxyz"
 var numStr = "0123456789";
@@ -13,23 +8,29 @@ var splCharStr = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+
+  // Initialize variables
+    var pwdLen = 0;
+    var strPwdCriteria = "";
+    var pFlag = true;
+    var pwdReturn = "";
+
   // 1. Function to prompt user to input the password length and validate the input
     var pwdLgth = function() {
+      
+      pwdLen = prompt("Enter the length of the password");
 
-        pwdLen = prompt("Enter the length of the password");
-
-        // User input password length validation
-        if(isNaN(pwdLen)) {
-          alert("Please enter a number as password length");
-        }
-        else if(pwdLen < 8 || pwdLen > 128) 
-          {
-            alert("Please enter password length of at least 8 characters and no more than 128 characters.");
-          }
-        else {
-            pFlag = false;
-        }
-      };
+      // User input password length validation
+      if(isNaN(pwdLen)) {
+        alert("Please enter a number as password length");
+      }
+      else if(pwdLen < 8 || pwdLen > 128) {
+          alert("Please enter password length of at least 8 characters and no more than 128 characters.");
+      }
+      else {
+          pFlag = false;
+      }
+    };
       
     //2. Function to prompt user to choose character type LowerCase/Uppercase/Numeric/Special Characters and validate the selection.
     var charTypes = function() {
